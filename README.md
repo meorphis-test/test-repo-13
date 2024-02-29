@@ -1,10 +1,10 @@
-# Meorphis Test 25 Node API Library :D
+# Meorphis Test 25 Node API Library
 
 [![NPM version](https://img.shields.io/npm/v/meorphis-test-25.svg)](https://npmjs.org/package/meorphis-test-25)
 
 This library provides convenient access to the Meorphis Test 25 REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on docs3.meorphis.com](https://docs3.meorphis.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found [on docs5.meorphis.com](https://docs5.meorphis.com). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -174,7 +174,7 @@ import MeorphisTest25 from 'meorphis-test-25';
 ```
 
 To do the inverse, add `import "meorphis-test-25/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/meorphis-test/test-repo-12/tree/main/src/_shims#readme).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/meorphis-test/test-repo-12/tree/main/src/_shims#readme)).
 
 You may also provide a custom `fetch` function when instantiating the client,
 which can be used to inspect or alter the `Request` or `Response` before/after each request:
@@ -184,7 +184,7 @@ import { fetch } from 'undici'; // as one example
 import MeorphisTest25 from 'meorphis-test-25';
 
 const client = new MeorphisTest25({
-  fetch: async (url: RequestInfo, init?: RequestInfo): Promise<Response> => {
+  fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
     console.log('About to make a request', url, init);
     const response = await fetch(url, init);
     console.log('Got response', response);
