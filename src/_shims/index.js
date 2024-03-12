@@ -2,7 +2,7 @@
  * Disclaimer: modules in _shims aren't intended to be imported by SDK users.
  */
 const shims = require('./registry');
-const auto = require('meorphis-test-25/_shims/auto/runtime');
+const auto = require('meorphis-test-26-s7v7t1/_shims/auto/runtime');
 if (!shims.kind) shims.setShims(auto.getRuntime(), { auto: true });
 for (const property of Object.keys(shims)) {
   Object.defineProperty(exports, property, {

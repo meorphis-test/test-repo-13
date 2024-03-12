@@ -4,9 +4,9 @@ const config: JestConfigWithTsJest = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^meorphis-test-25$': '<rootDir>/src/index.ts',
-    '^meorphis-test-25/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^meorphis-test-25/(.*)$': '<rootDir>/src/$1',
+    '^meorphis-test-26-s7v7t1$': '<rootDir>/src/index.ts',
+    '^meorphis-test-26-s7v7t1/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^meorphis-test-26-s7v7t1/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

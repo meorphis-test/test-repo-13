@@ -42,7 +42,7 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```bash
-npm install --save git+ssh://git@github.com:meorphis-test/test-repo-12.git
+npm install git+ssh://git@github.com:meorphis-test/test-repo-12.git
 ```
 
 Alternatively, to link a local copy of the repo:
@@ -55,12 +55,12 @@ cd test-repo-12
 # With yarn
 yarn link
 cd ../my-package
-yarn link meorphis-test-25
+yarn link meorphis-test-26-s7v7t1
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global meorphis-test-25
+pnpm link -—global meorphis-test-26-s7v7t1
 ```
 
 ## Running tests

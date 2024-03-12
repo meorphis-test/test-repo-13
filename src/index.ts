@@ -4,7 +4,7 @@ import * as Core from './core';
 import * as Errors from './error';
 import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from 'meorphis-test-25/resources/index';
+import * as API from 'meorphis-test-26-s7v7t1/resources/index';
 
 const environments = {
   production: 'https://api.acme.com/v1',
@@ -14,7 +14,7 @@ type Environment = keyof typeof environments;
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['MEORPHIS_TEST_25_API_KEY'].
+   * Defaults to process.env['MEORPHIS_TEST_26_S7V7T1_API_KEY'].
    */
   apiKey?: string | undefined;
 
@@ -30,7 +30,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['MEORPHIS_TEST_25_BASE_URL'].
+   * Defaults to process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -84,18 +84,18 @@ export interface ClientOptions {
   defaultQuery?: Core.DefaultQuery;
 }
 
-/** API Client for interfacing with the Meorphis Test 25 API. */
-export class MeorphisTest25 extends Core.APIClient {
+/** API Client for interfacing with the Meorphis Test 26 S7v7t1 API. */
+export class MeorphisTest26S7v7t1 extends Core.APIClient {
   apiKey: string;
 
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Meorphis Test 25 API.
+   * API Client for interfacing with the Meorphis Test 26 S7v7t1 API.
    *
-   * @param {string | undefined} [opts.apiKey=process.env['MEORPHIS_TEST_25_API_KEY'] ?? undefined]
+   * @param {string | undefined} [opts.apiKey=process.env['MEORPHIS_TEST_26_S7V7T1_API_KEY'] ?? undefined]
    * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['MEORPHIS_TEST_25_BASE_URL'] ?? https://api.acme.com/v1] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'] ?? https://api.acme.com/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -104,13 +104,13 @@ export class MeorphisTest25 extends Core.APIClient {
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = Core.readEnv('MEORPHIS_TEST_25_BASE_URL'),
-    apiKey = Core.readEnv('MEORPHIS_TEST_25_API_KEY'),
+    baseURL = Core.readEnv('MEORPHIS_TEST_26_S7V7T1_BASE_URL'),
+    apiKey = Core.readEnv('MEORPHIS_TEST_26_S7V7T1_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
-      throw new Errors.MeorphisTest25Error(
-        "The MEORPHIS_TEST_25_API_KEY environment variable is missing or empty; either provide it, or instantiate the MeorphisTest25 client with an apiKey option, like new MeorphisTest25({ apiKey: 'My API Key' }).",
+      throw new Errors.MeorphisTest26S7v7t1Error(
+        "The MEORPHIS_TEST_26_S7V7T1_API_KEY environment variable is missing or empty; either provide it, or instantiate the MeorphisTest26S7v7t1 client with an apiKey option, like new MeorphisTest26S7v7t1({ apiKey: 'My API Key' }).",
       );
     }
 
@@ -122,8 +122,8 @@ export class MeorphisTest25 extends Core.APIClient {
     };
 
     if (baseURL && opts.environment) {
-      throw new Errors.MeorphisTest25Error(
-        'Ambiguous URL; The `baseURL` option (or MEORPHIS_TEST_25_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
+      throw new Errors.MeorphisTest26S7v7t1Error(
+        'Ambiguous URL; The `baseURL` option (or MEORPHIS_TEST_26_S7V7T1_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
       );
     }
 
@@ -158,9 +158,9 @@ export class MeorphisTest25 extends Core.APIClient {
     return { Authorization: this.apiKey };
   }
 
-  static MeorphisTest25 = this;
+  static MeorphisTest26S7v7t1 = this;
 
-  static MeorphisTest25Error = Errors.MeorphisTest25Error;
+  static MeorphisTest26S7v7t1Error = Errors.MeorphisTest26S7v7t1Error;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -176,7 +176,7 @@ export class MeorphisTest25 extends Core.APIClient {
 }
 
 export const {
-  MeorphisTest25Error,
+  MeorphisTest26S7v7t1Error,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -194,7 +194,7 @@ export const {
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace MeorphisTest25 {
+export namespace MeorphisTest26S7v7t1 {
   // Helper functions
   export import toFile = Uploads.toFile;
   export import fileFromPath = Uploads.fileFromPath;
@@ -207,7 +207,6 @@ export namespace MeorphisTest25 {
 
   export import Cards = API.Cards;
   export import Card = API.Card;
-  export import FinancialTransaction = API.FinancialTransaction;
   export import CardProvisionResponse = API.CardProvisionResponse;
   export import CardCreateParams = API.CardCreateParams;
   export import CardUpdateParams = API.CardUpdateParams;
@@ -217,4 +216,4 @@ export namespace MeorphisTest25 {
   export import StatusRetrieveResponse = API.StatusRetrieveResponse;
 }
 
-export default MeorphisTest25;
+export default MeorphisTest26S7v7t1;

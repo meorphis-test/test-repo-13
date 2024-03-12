@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import MeorphisTest25 from 'meorphis-test-25';
-import { APIUserAbortError } from 'meorphis-test-25';
-import { Headers } from 'meorphis-test-25/core';
+import MeorphisTest26S7v7t1 from 'meorphis-test-26-s7v7t1';
+import { APIUserAbortError } from 'meorphis-test-26-s7v7t1';
+import { Headers } from 'meorphis-test-26-s7v7t1/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {
@@ -20,7 +20,7 @@ describe('instantiate client', () => {
   });
 
   describe('defaultHeaders', () => {
-    const client = new MeorphisTest25({
+    const client = new MeorphisTest26S7v7t1({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
       apiKey: 'My API Key',
@@ -52,7 +52,7 @@ describe('instantiate client', () => {
 
   describe('defaultQuery', () => {
     test('with null query params given', () => {
-      const client = new MeorphisTest25({
+      const client = new MeorphisTest26S7v7t1({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
         apiKey: 'My API Key',
@@ -61,7 +61,7 @@ describe('instantiate client', () => {
     });
 
     test('multiple default query params', () => {
-      const client = new MeorphisTest25({
+      const client = new MeorphisTest26S7v7t1({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
         apiKey: 'My API Key',
@@ -70,7 +70,7 @@ describe('instantiate client', () => {
     });
 
     test('overriding with `undefined`', () => {
-      const client = new MeorphisTest25({
+      const client = new MeorphisTest26S7v7t1({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
         apiKey: 'My API Key',
@@ -80,7 +80,7 @@ describe('instantiate client', () => {
   });
 
   test('custom fetch', async () => {
-    const client = new MeorphisTest25({
+    const client = new MeorphisTest26S7v7t1({
       baseURL: 'http://localhost:5000/',
       apiKey: 'My API Key',
       fetch: (url) => {
@@ -97,7 +97,7 @@ describe('instantiate client', () => {
   });
 
   test('custom signal', async () => {
-    const client = new MeorphisTest25({
+    const client = new MeorphisTest26S7v7t1({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
       apiKey: 'My API Key',
       fetch: (...args) => {
@@ -124,7 +124,7 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new MeorphisTest25({
+      const client = new MeorphisTest26S7v7t1({
         baseURL: 'http://localhost:5000/custom/path/',
         apiKey: 'My API Key',
       });
@@ -132,7 +132,7 @@ describe('instantiate client', () => {
     });
 
     test('no trailing slash', () => {
-      const client = new MeorphisTest25({
+      const client = new MeorphisTest26S7v7t1({
         baseURL: 'http://localhost:5000/custom/path',
         apiKey: 'My API Key',
       });
@@ -140,72 +140,76 @@ describe('instantiate client', () => {
     });
 
     afterEach(() => {
-      process.env['MEORPHIS_TEST_25_BASE_URL'] = undefined;
+      process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'] = undefined;
     });
 
     test('explicit option', () => {
-      const client = new MeorphisTest25({ baseURL: 'https://example.com', apiKey: 'My API Key' });
+      const client = new MeorphisTest26S7v7t1({ baseURL: 'https://example.com', apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
-      process.env['MEORPHIS_TEST_25_BASE_URL'] = 'https://example.com/from_env';
-      const client = new MeorphisTest25({ apiKey: 'My API Key' });
+      process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'] = 'https://example.com/from_env';
+      const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
-      process.env['MEORPHIS_TEST_25_BASE_URL'] = ''; // empty
-      const client = new MeorphisTest25({ apiKey: 'My API Key' });
+      process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'] = ''; // empty
+      const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.acme.com/v1');
     });
 
     test('blank env variable', () => {
-      process.env['MEORPHIS_TEST_25_BASE_URL'] = '  '; // blank
-      const client = new MeorphisTest25({ apiKey: 'My API Key' });
+      process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'] = '  '; // blank
+      const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key' });
       expect(client.baseURL).toEqual('https://api.acme.com/v1');
     });
 
     test('env variable with environment', () => {
-      process.env['MEORPHIS_TEST_25_BASE_URL'] = 'https://example.com/from_env';
+      process.env['MEORPHIS_TEST_26_S7V7T1_BASE_URL'] = 'https://example.com/from_env';
 
       expect(
-        () => new MeorphisTest25({ apiKey: 'My API Key', environment: 'production' }),
+        () => new MeorphisTest26S7v7t1({ apiKey: 'My API Key', environment: 'production' }),
       ).toThrowErrorMatchingInlineSnapshot(
-        `"Ambiguous URL; The \`baseURL\` option (or MEORPHIS_TEST_25_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+        `"Ambiguous URL; The \`baseURL\` option (or MEORPHIS_TEST_26_S7V7T1_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
 
-      const client = new MeorphisTest25({ apiKey: 'My API Key', baseURL: null, environment: 'production' });
+      const client = new MeorphisTest26S7v7t1({
+        apiKey: 'My API Key',
+        baseURL: null,
+        environment: 'production',
+      });
       expect(client.baseURL).toEqual('https://api.acme.com/v1');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new MeorphisTest25({ maxRetries: 4, apiKey: 'My API Key' });
+    const client = new MeorphisTest26S7v7t1({ maxRetries: 4, apiKey: 'My API Key' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new MeorphisTest25({ apiKey: 'My API Key' });
+    const client2 = new MeorphisTest26S7v7t1({ apiKey: 'My API Key' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['MEORPHIS_TEST_25_API_KEY'] = 'My API Key';
-    const client = new MeorphisTest25();
+    process.env['MEORPHIS_TEST_26_S7V7T1_API_KEY'] = 'My API Key';
+    const client = new MeorphisTest26S7v7t1();
     expect(client.apiKey).toBe('My API Key');
   });
 
   test('with overriden environment variable arguments', () => {
     // set options via env var
-    process.env['MEORPHIS_TEST_25_API_KEY'] = 'another My API Key';
-    const client = new MeorphisTest25({ apiKey: 'My API Key' });
+    process.env['MEORPHIS_TEST_26_S7V7T1_API_KEY'] = 'another My API Key';
+    const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key' });
     expect(client.apiKey).toBe('My API Key');
   });
 });
 
 describe('request building', () => {
-  const client = new MeorphisTest25({ apiKey: 'My API Key' });
+  const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key' });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -247,7 +251,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new MeorphisTest25({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
+    const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -274,7 +278,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new MeorphisTest25({ apiKey: 'My API Key', fetch: testFetch });
+    const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -301,7 +305,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new MeorphisTest25({ apiKey: 'My API Key', fetch: testFetch });
+    const client = new MeorphisTest26S7v7t1({ apiKey: 'My API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);

@@ -3,7 +3,6 @@
 export { AccountConfiguration, AccountUpdateParams, Accounts } from './accounts/accounts';
 export {
   Card,
-  FinancialTransaction,
   CardProvisionResponse,
   CardCreateParams,
   CardUpdateParams,

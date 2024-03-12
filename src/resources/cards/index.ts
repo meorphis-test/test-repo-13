@@ -2,11 +2,10 @@
 
 export {
   Card,
-  FinancialTransaction,
   CardProvisionResponse,
   CardCreateParams,
   CardUpdateParams,
   CardProvisionParams,
   Cards,
 } from './cards';
-export { FinancialTransactions } from './financial-transactions';
+export { FinancialTransaction, FinancialTransactions } from './financial-transactions';

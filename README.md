@@ -1,17 +1,15 @@
-# Meorphis Test 25 Node API Library
+# Meorphis Test 26 S7v7t1 Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/meorphis-test-25.svg)](https://npmjs.org/package/meorphis-test-25)
+[![NPM version](https://img.shields.io/npm/v/meorphis-test-26-s7v7t1.svg)](https://npmjs.org/package/meorphis-test-26-s7v7t1)
 
-This library provides convenient access to the Meorphis Test 25 REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the Meorphis Test 26 S7v7t1 REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on docs5.meorphis.com](https://docs5.meorphis.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found [on docs.meorphis-test-26-s7v7t1.com](https://docs.meorphis-test-26-s7v7t1.com). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
 ```sh
-npm install --save meorphis-test-25
-# or
-yarn add meorphis-test-25
+npm install meorphis-test-26-s7v7t1
 ```
 
 ## Usage
@@ -20,15 +18,15 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import MeorphisTest25 from 'meorphis-test-25';
+import MeorphisTest26S7v7t1 from 'meorphis-test-26-s7v7t1';
 
-const meorphisTest25 = new MeorphisTest25({
-  apiKey: process.env['MEORPHIS_TEST_25_API_KEY'], // This is the default and can be omitted
+const meorphisTest26S7v7t1 = new MeorphisTest26S7v7t1({
+  apiKey: process.env['MEORPHIS_TEST_26_S7V7T1_API_KEY'], // This is the default and can be omitted
   environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
-  const statusRetrieveResponse = await meorphisTest25.status.retrieve();
+  const statusRetrieveResponse = await meorphisTest26S7v7t1.status.retrieve();
 
   console.log(statusRetrieveResponse.message);
 }
@@ -42,16 +40,16 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import MeorphisTest25 from 'meorphis-test-25';
+import MeorphisTest26S7v7t1 from 'meorphis-test-26-s7v7t1';
 
-const meorphisTest25 = new MeorphisTest25({
-  apiKey: process.env['MEORPHIS_TEST_25_API_KEY'], // This is the default and can be omitted
+const meorphisTest26S7v7t1 = new MeorphisTest26S7v7t1({
+  apiKey: process.env['MEORPHIS_TEST_26_S7V7T1_API_KEY'], // This is the default and can be omitted
   environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
-  const statusRetrieveResponse: MeorphisTest25.StatusRetrieveResponse =
-    await meorphisTest25.status.retrieve();
+  const statusRetrieveResponse: MeorphisTest26S7v7t1.StatusRetrieveResponse =
+    await meorphisTest26S7v7t1.status.retrieve();
 }
 
 main();
@@ -68,8 +66,8 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const statusRetrieveResponse = await meorphisTest25.status.retrieve().catch((err) => {
-    if (err instanceof MeorphisTest25.APIError) {
+  const statusRetrieveResponse = await meorphisTest26S7v7t1.status.retrieve().catch(async (err) => {
+    if (err instanceof MeorphisTest26S7v7t1.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
       console.log(err.headers); // {server: 'nginx', ...}
@@ -106,12 +104,12 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const meorphisTest25 = new MeorphisTest25({
+const meorphisTest26S7v7t1 = new MeorphisTest26S7v7t1({
   maxRetries: 0, // default is 2
 });
 
 // Or, configure per-request:
-await meorphisTest25.status.retrieve({
+await meorphisTest26S7v7t1.status.retrieve({
   maxRetries: 5,
 });
 ```
@@ -123,12 +121,12 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const meorphisTest25 = new MeorphisTest25({
+const meorphisTest26S7v7t1 = new MeorphisTest26S7v7t1({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
 // Override per-request:
-await meorphisTest25.status.retrieve({
+await meorphisTest26S7v7t1.status.retrieve({
   timeout: 5 * 1000,
 });
 ```
@@ -147,13 +145,15 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const meorphisTest25 = new MeorphisTest25();
+const meorphisTest26S7v7t1 = new MeorphisTest26S7v7t1();
 
-const response = await meorphisTest25.status.retrieve().asResponse();
+const response = await meorphisTest26S7v7t1.status.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: statusRetrieveResponse, response: raw } = await meorphisTest25.status.retrieve().withResponse();
+const { data: statusRetrieveResponse, response: raw } = await meorphisTest26S7v7t1.status
+  .retrieve()
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(statusRetrieveResponse.message);
 ```
@@ -164,16 +164,16 @@ By default, this library uses `node-fetch` in Node, and expects a global `fetch`
 
 If you would prefer to use a global, web-standards-compliant `fetch` function even in a Node environment,
 (for example, if you are running Node with `--experimental-fetch` or using NextJS which polyfills with `undici`),
-add the following import before your first import `from "MeorphisTest25"`:
+add the following import before your first import `from "MeorphisTest26S7v7t1"`:
 
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import 'meorphis-test-25/shims/web';
-import MeorphisTest25 from 'meorphis-test-25';
+import 'meorphis-test-26-s7v7t1/shims/web';
+import MeorphisTest26S7v7t1 from 'meorphis-test-26-s7v7t1';
 ```
 
-To do the inverse, add `import "meorphis-test-25/shims/node"` (which does import polyfills).
+To do the inverse, add `import "meorphis-test-26-s7v7t1/shims/node"` (which does import polyfills).
 This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/meorphis-test/test-repo-12/tree/main/src/_shims#readme)).
 
 You may also provide a custom `fetch` function when instantiating the client,
@@ -181,9 +181,9 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import MeorphisTest25 from 'meorphis-test-25';
+import MeorphisTest26S7v7t1 from 'meorphis-test-26-s7v7t1';
 
-const client = new MeorphisTest25({
+const client = new MeorphisTest26S7v7t1({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
     console.log('About to make a request', url, init);
     const response = await fetch(url, init);
@@ -205,18 +205,17 @@ If you would like to disable or customize this behavior, for example to use the 
 <!-- prettier-ignore -->
 ```ts
 import http from 'http';
-import HttpsProxyAgent from 'https-proxy-agent';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const meorphisTest25 = new MeorphisTest25({
+const meorphisTest26S7v7t1 = new MeorphisTest26S7v7t1({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
 // Override per-request:
-await meorphisTest25.status.retrieve({
-  baseURL: 'http://localhost:8080/test-api',
+await meorphisTest26S7v7t1.status.retrieve({
   httpAgent: new http.Agent({ keepAlive: false }),
-})
+});
 ```
 
 ## Semantic Versioning
@@ -238,7 +237,7 @@ TypeScript >= 4.5 is supported.
 The following runtimes are supported:
 
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import MeorphisTest25 from "npm:meorphis-test-25"`.
+- Deno v1.28.0 or higher, using `import MeorphisTest26S7v7t1 from "npm:meorphis-test-26-s7v7t1"`.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.

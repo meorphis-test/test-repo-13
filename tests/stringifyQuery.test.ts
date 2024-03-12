@@ -1,4 +1,4 @@
-import { APIClient } from 'meorphis-test-25/core';
+import { APIClient } from 'meorphis-test-26-s7v7t1/core';
 
 const { stringifyQuery } = APIClient.prototype as any;
 

@@ -25,7 +25,6 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/cards/cards.ts">Card</a></code>
-- <code><a href="./src/resources/cards/cards.ts">FinancialTransaction</a></code>
 - <code><a href="./src/resources/cards/cards.ts">CardProvisionResponse</a></code>
 
 Methods:
@@ -36,6 +35,10 @@ Methods:
 - <code title="post /cards/{card_token}/provision">client.cards.<a href="./src/resources/cards/cards.ts">provision</a>(cardToken, { ...params }) -> CardProvisionResponse</code>
 
 ## FinancialTransactions
+
+Types:
+
+- <code><a href="./src/resources/cards/financial-transactions.ts">FinancialTransaction</a></code>
 
 Methods:
 
