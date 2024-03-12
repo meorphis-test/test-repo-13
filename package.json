@@ -1,12 +1,12 @@
 {
   "name": "meorphis-test-26-s7v7t1",
-  "version": "1.0.1-alpha.0",
+  "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Meorphis Test 26 S7v7t1 API",
   "author": "Meorphis Test 26 S7v7t1 <support@acme.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:meorphis-test/test-repo-12",
+  "repository": "github:stainless-sdks/meorphis-test-26-s7v7t1-node",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.21",
   "files": [
